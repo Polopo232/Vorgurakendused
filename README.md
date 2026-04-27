@@ -1,4 +1,3 @@
-cat << 'EOF' > README.md
 # IT-Infrastruktuuri Projekt - Veebirakendus ja Monitooring
 
 Antud projekt on loodud õppeülesande raames. Süsteem koosneb konteineriseeritud veebirakendusest, andmebaasist ja tsentraalsest logimissüsteemist.
