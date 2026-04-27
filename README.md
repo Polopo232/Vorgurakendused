@@ -80,7 +80,7 @@ Logid saadetakse reaalajas Elasticsearchi serverisse JSON-vormingus üle HTTPS p
 * **Logi sihtkoht:** \`https://srv1073565.hstgr.cloud:8443/api/v1/logs\`
 * **Kibana vaade:** Kasutage filtrit \`service: "Nimi_App"\`, et jälgida rakenduse tervist.
 
-![Kibana logid](img/kibana.png)
+<img width="1093" height="461" alt="image" src="https://github.com/user-attachments/assets/71911ef3-90a1-449b-9022-22d9f234f7fe" />
 
 ---
 
