@@ -85,10 +85,14 @@ Logid saadetakse reaalajas Elasticsearchi serverisse JSON-vormingus üle HTTPS p
 
 <a name="6-api-dokumentatsioon"></a>
 ## 6. API Dokumentatsioon
-Rakendus pakub lihtsat liidest külastuste registreerimiseks ja andmete kuvamiseks.
-* **Endpoint:** \`GET /\`
-* **Vastus:** HTML dokument koos külastajate ajalooga.
-* **Veahaldus:** Kõik PHP ja PDO vead logitakse tasemega \`ERROR\` ja saadetakse tsentraalsesse monitooringusse.
+Rakendus pakub lihtsat REST-põhist liidest külastuste registreerimiseks ja andmete kuvamiseks.
+
+* **Endpoint:** `GET /`
+* **Meetod:** `GET`
+* **Vastus:** Rakendus tagastab HTML-dokumendi, mis sisaldab viimaseid andmebaasist päritud külastusi.
+* **Andmevahetus:** Süsteem on integreeritud välise Forward API-ga, kuhu edastatakse sündmuste logid JSON-vormingus.
+* **Veahaldus (Error Handling):** Kõik rakenduse kriitilised vead (nt andmebaasi ühenduse puudumine) püütakse kinni ja edastatakse automaatselt monitooringusüsteemi koos vastava veateatega.
+* **Vastavus standarditele:** API päringud on konfigureeritud vastavalt projekti juhendis sätestatud turvanõuetele, kasutades autoriseerimiseks vajalikke päiseid.
 
 ---
 **Autor:** Nikita Nikiforov
