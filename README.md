@@ -2,6 +2,8 @@
 
 Antud projekt on loodud õppeülesande raames. Süsteem koosneb konteineriseeritud veebirakendusest, andmebaasist ja tsentraalsest logimissüsteemist.
 
+<img width="948" height="690" alt="Screenshot 2026-04-27 115242" src="https://github.com/user-attachments/assets/d1e949ba-db93-477c-a4e4-a26672893cd7" />
+
 ---
 
 ## 📌 Sisukord
@@ -85,14 +87,13 @@ Logid saadetakse reaalajas Elasticsearchi serverisse JSON-vormingus üle HTTPS p
 
 <a name="6-api-dokumentatsioon"></a>
 ## 6. API Dokumentatsioon
-Rakendus pakub lihtsat REST-põhist liidest külastuste registreerimiseks ja andmete kuvamiseks.
+Rakendus pakub standardset REST-põhist liidest külastuste andmete haldamiseks vastavalt OpenAPI (Swagger) standardile.
 
-* **Endpoint:** `GET /`
-* **Meetod:** `GET`
-* **Vastus:** Rakendus tagastab HTML-dokumendi, mis sisaldab viimaseid andmebaasist päritud külastusi.
-* **Andmevahetus:** Süsteem on integreeritud välise Forward API-ga, kuhu edastatakse sündmuste logid JSON-vormingus.
-* **Veahaldus (Error Handling):** Kõik rakenduse kriitilised vead (nt andmebaasi ühenduse puudumine) püütakse kinni ja edastatakse automaatselt monitooringusüsteemi koos vastava veateatega.
-* **Vastavus standarditele:** API päringud on konfigureeritud vastavalt projekti juhendis sätestatud turvanõuetele, kasutades autoriseerimiseks vajalikke päiseid.
+* **Endpoint:** `GET /` — peamine otspunkt, mis väljastab külastajate ajaloo HTML-vormingus.
+* [cite_start]**Logide integreerimine:** Rakendus on liidestatud tsentraalse Forward API-ga (`port 8443`), saates sündmuste logisid reaalajas JSON-formaadis[cite: 69, 71].
+* [cite_start]**Turvalisus:** Päringud sisaldavad kohustuslikke `x-api-id` ja `x-api-key` päiseid autoriseerimiseks.
+* [cite_start]**Veahaldus:** Kõik PDO andmebaasi ühenduse vead püütakse kinni ja suunatakse tasemega `ERROR` monitooringusüsteemi[cite: 24].
+* **Dokumentatsioon:** Täielik API spetsifikatsioon on leitav failist `swagger.yaml`.
 
 ---
 **Autor:** Nikita Nikiforov
