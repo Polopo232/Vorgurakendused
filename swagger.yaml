@@ -1,0 +1,12 @@
+openapi: 3.0.0
+info:
+  title: "IT-Infrastruktuuri Projekt API"
+  description: "Lihtne API külastuste registreerimiseks ja kuvamiseks."
+  version: "1.0.0"
+paths:
+  /:
+    get:
+      summary: "Tagastab külastuste ajaloo"
+      responses:
+        '200':
+          description: "Edukas päring, tagastatakse HTML leht"
