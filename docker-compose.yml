@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+  # 1. База данных (MySQL/MariaDB) [cite: 29]
+  db:
+    image: mariadb:latest
+    container_name: nimi_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: password123
+      MYSQL_DATABASE: projekt_db
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - projekt_net
+
+  # 2. PHP-приложение и API [cite: 19, 33]
+  app:
+    build: .
+    container_name: nimi_app
+    volumes:
+      - ./src:/var/www/html
+    depends_on:
+      - db
+    networks:
+      - projekt_net
+
+  # 3. Веб-сервер (Nginx) [cite: 17, 23]
+  web:
+    image: nginx:latest
+    container_name: nimi_web
+    ports:
+      - "80:80"
+    volumes:
+      - ./public:/usr/share/nginx/html
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - app
+    networks:
+      - projekt_net
+
+networks:
+  projekt_net:
+    driver: bridge
+
+volumes:
+  db_data:
