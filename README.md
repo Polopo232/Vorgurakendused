@@ -90,9 +90,9 @@ Logid saadetakse reaalajas Elasticsearchi serverisse JSON-vormingus üle HTTPS p
 Rakendus pakub standardset REST-põhist liidest külastuste andmete haldamiseks vastavalt OpenAPI (Swagger) standardile.
 
 * **Endpoint:** `GET /` — peamine otspunkt, mis väljastab külastajate ajaloo HTML-vormingus.
-* [cite_start]**Logide integreerimine:** Rakendus on liidestatud tsentraalse Forward API-ga (`port 8443`), saates sündmuste logisid reaalajas JSON-formaadis[cite: 69, 71].
-* [cite_start]**Turvalisus:** Päringud sisaldavad kohustuslikke `x-api-id` ja `x-api-key` päiseid autoriseerimiseks.
-* [cite_start]**Veahaldus:** Kõik PDO andmebaasi ühenduse vead püütakse kinni ja suunatakse tasemega `ERROR` monitooringusüsteemi[cite: 24].
+* **Logide integreerimine:** Rakendus on liidestatud tsentraalse Forward API-ga (`port 8443`), saates sündmuste logisid reaalajas JSON-formaadis[cite: 69, 71].
+* **Turvalisus:** Päringud sisaldavad kohustuslikke `x-api-id` ja `x-api-key` päiseid autoriseerimiseks.
+* **Veahaldus:** Kõik PDO andmebaasi ühenduse vead püütakse kinni ja suunatakse tasemega `ERROR` monitooringusüsteemi[cite: 24].
 * **Dokumentatsioon:** Täielik API spetsifikatsioon on leitav failist `swagger.yaml`.
 
 ---
