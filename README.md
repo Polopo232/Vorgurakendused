@@ -29,18 +29,18 @@ Süsteemi arhitektuur kirjeldab seoseid kasutaja brauseri, veebiserveri, rakendu
 Süsteemi käivitamiseks peab masinas olema installitud **Docker** ja **Docker Compose**.
 
 1. Kloonige repositoorium:
-   \`\`\`bash
+   ``bash
    git clone https://github.com/Polopo232/Vorgurakendused.git
    cd Vorgurakendused
-   \`\`\`
+   ``
 2. Käivitage konteinerid:
-   \`\`\`bash
+   ``bash
    sudo docker compose up -d
-   \`\`\`
+   ``
 3. Kontrollige konteinerite staatust:
-   \`\`\`bash
+   ``bash
    sudo docker ps
-   \`\`\`
+   ``
 
 
 
@@ -63,13 +63,13 @@ Veebirakendus on kättesaadav aadressil \`http://localhost\`.
 * **Andmebaasi nimi:** \`projekt_db\`
 * **Tabeli struktuur:** \`visits\` (id, visit_time, user_agent)
 * **Varundamine (Backup):**
-  \`\`\`bash
+  ``bash
   docker exec db_container_name mysqldump -u root -p projekt_db > backup.sql
-  \`\`\`
+  ``
 * **Andmete taastamine:**
-  \`\`\`bash
+  ``bash
   docker exec -i db_container_name mariadb -u root -p projekt_db < backup.sql
-  \`\`\`
+``
 
 ---
 
