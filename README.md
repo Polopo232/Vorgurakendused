@@ -91,6 +91,5 @@ Rakendus pakub lihtsat liidest külastuste registreerimiseks ja andmete kuvamise
 * **Veahaldus:** Kõik PHP ja PDO vead logitakse tasemega \`ERROR\` ja saadetakse tsentraalsesse monitooringusse.
 
 ---
-**Autor:** Polopo232
-**Kuupäev:** 27. aprill 2026
-EOF
+**Autor:** Nikita Nikiforov
+**Ruhm:** TARpv24
