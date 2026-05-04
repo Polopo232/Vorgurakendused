@@ -2,7 +2,7 @@
 
 Antud projekt on loodud õppeülesande raames. Süsteem koosneb konteineriseeritud veebirakendusest, andmebaasist ja tsentraalsest logimissüsteemist.
 
-<img width="948" height="690" alt="Screenshot 2026-04-27 115242" src="https://github.com/user-attachments/assets/d1e949ba-db93-477c-a4e4-a26672893cd7" />
+<img width="948" height="690" alt="Süsteemi vaade" src="https://github.com/user-attachments/assets/d1e949ba-db93-477c-a4e4-a26672893cd7" />
 
 ---
 
@@ -10,91 +10,66 @@ Antud projekt on loodud õppeülesande raames. Süsteem koosneb konteineriseerit
 * [1. Arhitektuuri joonis](#1-arhitektuuri-joonis)
 * [2. Paigaldusjuhend](#2-paigaldusjuhend)
 * [3. Rakenduse funktsionaalsus](#3-rakenduse-funktsionaalsus)
-* [4. Andmebaasi administreerimine](#4-andmebaasi-administreerimine)
+* [4. Andmebaasi spetsifikatsioon](#4-andmebaasi-spetsifikatsioon)
 * [5. Monitooring ja Kibana](#5-monitooring-ja-kibana)
 * [6. API Dokumentatsioon](#6-api-dokumentatsioon)
 
 ---
 
 <a name="1-arhitektuuri-joonis"></a>
-## 1. Arhitektuuri joonis
-Süsteemi arhitektuur kirjeldab seoseid kasutaja brauseri, veebiserveri, rakendusserveri ja andmebaasi vahel. Logid suunatakse tsentraalsesse Forward API teenusesse.
+## 1. Arhitektuuri joonis (5.2)
+Süsteemi arhitektuur on täielikult konteineriseeritud (Nginx, PHP-FPM, MariaDB). Joonis kirjeldab andmevoogusid kasutaja ja teenuste vahel.
 
-<img width="905" height="457" alt="Screenshot 2026-04-27 120946" src="https://github.com/user-attachments/assets/8cc9d2b2-6f25-4577-ad34-71fe1404294b" />
+<img width="905" height="457" alt="Arhitektuur" src="https://github.com/user-attachments/assets/8cc9d2b2-6f25-4577-ad34-71fe1404294b" />
 
 ---
 
 <a name="2-paigaldusjuhend"></a>
 ## 2. Paigaldusjuhend
-Süsteemi käivitamiseks peab masinas olema installitud **Docker** ja **Docker Compose**.
+Süsteemi käivitamiseks on vajalik Docker ja Docker Compose[cite: 2].
 
-1. Kloonige repositoorium:
-   ``bash
-   git clone https://github.com/Polopo232/Vorgurakendused.git
-   cd Vorgurakendused
-   ``
-2. Käivitage konteinerid:
-   ``bash
-   sudo docker compose up -d
-   ``
-3. Kontrollige konteinerite staatust:
-   ``bash
-   sudo docker ps
-   ``
-
-
+1. Kloonige repositoorium: `git clone https://github.com/Polopo232/Vorgurakendused.git`[cite: 2].
+2. Käivitage süsteem: `sudo docker compose up -d`[cite: 2].
 
 ---
 
 <a name="3-rakenduse-funktsionaalsus"></a>
-## 3. Rakenduse funktsionaalsus
-Veebirakendus on kättesaadav aadressil \`http://localhost\`.
-* Igal lehe laadimisel registreeritakse külastus MariaDB andmebaasis.
-* Rakendus kuvab viimased 5 külastust otse andmebaasist.
-* Süsteem kontrollib ühendust andmebaasiga ja raporteerib vigadest logimissüsteemi.
+## 3. Rakenduse funktsionaalsus (User Manual - 5.1)
+Veebirakendus registreerib külastusi ja kuvab ajalugu[cite: 2].
+* **Ligipääs:** Ava brauseris `http://localhost`[cite: 2].
+* **Kasutamine:** Iga lehe värskendus loob uue sissekande MariaDB andmebaasi[cite: 2].
+* **Väljund:** Kuvatakse viimased 5 külastust koos seadme infoga[cite: 2].
 
-<img width="1816" height="927" alt="image" src="https://github.com/user-attachments/assets/b16c3324-c964-4d4d-9077-6249e272d64b" />
+<img width="1816" height="927" alt="Veebivaade" src="https://github.com/user-attachments/assets/b16c3324-c964-4d4d-9077-6249e272d64b" />
 
 ---
 
-<a name="4-andmebaasi-administreerimine"></a>
-## 4. Andmebaasi administreerimine
-* **Andmebaasi tüüp:** MariaDB 10.11
-* **Andmebaasi nimi:** \`projekt_db\`
-* **Tabeli struktuur:** \`visits\` (id, visit_time, user_agent)
-* **Varundamine (Backup):**
-  ``bash
-  docker exec db_container_name mysqldump -u root -p projekt_db > backup.sql
-  ``
-* **Andmete taastamine:**
-  ``bash
-  docker exec -i db_container_name mariadb -u root -p projekt_db < backup.sql
-``
+<a name="4-andmebaasi-spetsifikatsioon"></a>
+## 4. Andmebaasi spetsifikatsioon (DB Spec - 5.2)
+* **Tüüp:** MariaDB 10.11[cite: 2].
+* **Tabel:** `visits`[cite: 2].
+* **Väljad:** `id` (PK), `visit_time` (Timestamp), `user_agent` (Varchar)[cite: 2].
 
 ---
 
 <a name="5-monitooring-ja-kibana"></a>
-## 5. Monitooring ja Kibana
-Logid saadetakse reaalajas Elasticsearchi serverisse JSON-vormingus üle HTTPS protokolli.
+## 5. Monitooring ja Kibana (4.2)
+Logid edastatakse reaalajas Forward API kaudu JSON-vormingus[cite: 1, 2].
+* **Teenus:** `Nimi_App`[cite: 1, 2].
+* **Kibana:** Kasutage filtrit `service: "Nimi_App"`, et jälgida süsteemi logisid[cite: 1, 2].
 
-* **Teenuse nimi:** \`Nimi_App\`
-* **Logi sihtkoht:** \`https://srv1073565.hstgr.cloud:8443/api/v1/logs\`
-* **Kibana vaade:** Kasutage filtrit \`service: "Nimi_App"\`, et jälgida rakenduse tervist.
-
-<img width="1093" height="461" alt="image" src="https://github.com/user-attachments/assets/71911ef3-90a1-449b-9022-22d9f234f7fe" />
+<img width="1093" height="461" alt="Kibana" src="https://github.com/user-attachments/assets/71911ef3-90a1-449b-9022-22d9f234f7fe" />
 
 ---
 
 <a name="6-api-dokumentatsioon"></a>
-## 6. API Dokumentatsioon
-Rakendus pakub standardset REST-põhist liidest külastuste andmete haldamiseks vastavalt OpenAPI (Swagger) standardile.
-
-* **Endpoint:** `GET /` — peamine otspunkt, mis väljastab külastajate ajaloo HTML-vormingus.
-* **Logide integreerimine:** Rakendus on liidestatud tsentraalse Forward API-ga (`port 8443`), saates sündmuste logisid reaalajas JSON-formaadis[cite: 69, 71].
-* **Turvalisus:** Päringud sisaldavad kohustuslikke `x-api-id` ja `x-api-key` päiseid autoriseerimiseks.
-* **Veahaldus:** Kõik PDO andmebaasi ühenduse vead püütakse kinni ja suunatakse tasemega `ERROR` monitooringusüsteemi[cite: 24].
-* **Dokumentatsioon:** Täielik API spetsifikatsioon on leitav failist `swagger.yaml`.
+## 6. API Dokumentatsioon (5.2)
+Süsteem pakub REST-liidest vastavalt OpenAPI (Swagger) standardile[cite: 2].
+* **Endpoint:** `GET /` - väljastab külastuste ajaloo[cite: 2].
+* **Turvalisus:** Päringud on kaitstud `x-api-id` ja `x-api-key` päistega[cite: 1, 2].
+* **Fail:** Täielik spetsifikatsioon asub failis `swagger.yaml`[cite: 2].
 
 ---
-**Autor:** Nikita Nikiforov
-**Ruhm:** TARpv24
+**Tehniline Administraatori Juhend (5.3) asub siin:** [ADMIN_GUIDE.md](./ADMIN_GUIDE.md)[cite: 2].
+
+**Autor:** Nikita Nikiforov | **Rühm:** TARpv24
