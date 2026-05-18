@@ -12,8 +12,8 @@ Antud projekt on loodud õppeülesande raames. Süsteem koosneb konteineriseerit
 * [3. Monitooring ja Kibana](#5-monitooring-ja-kibana)
 * [4. API Dokumentatsioon](#6-api-dokumentatsioon)
 
-**Tehniline Administraatori Juhend asub siin:** [ADMIN_GUIDE.md](./ADMIN_GUIDE.md).
-**Kasutusjuhend (User Manual) asub siin:** [UserManual.md](./UserManual.md).
+* **Tehniline Administraatori Juhend asub siin:** [ADMIN_GUIDE.md](./ADMIN_GUIDE.md).
+* **Kasutusjuhend (User Manual) asub siin:** [UserManual.md](./UserManual.md).
 
 ---
 
