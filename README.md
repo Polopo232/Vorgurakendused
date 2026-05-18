@@ -2,7 +2,7 @@
 
 Antud projekt on loodud õppeülesande raames. Süsteem koosneb konteineriseeritud veebirakendusest, andmebaasist ja tsentraalsest logimissüsteemist.
 
-<img width="948" height="690" alt="Süsteemi vaade" src="https://github.com/user-attachments/assets/d1e949ba-db93-477c-a4e4-a26672893cd7" />
+<img width="626" height="662" alt="{FC338D33-71D8-47F7-8B7B-A15186C55006}" src="https://github.com/user-attachments/assets/ad360939-ccd7-4680-a2fd-959e315e35ef" />
 
 ---
 
