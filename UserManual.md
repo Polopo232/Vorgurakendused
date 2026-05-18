@@ -8,7 +8,7 @@ Rakenduse kasutamine on maksimaalselt lihtne ega nõua kasutajalt keerulisi lisa
 
 * Andmete kuvamine (Väljund): Veebilehel kuvatakse reaalajas tekst: "Antud süsteem on konteineriseeritud ja logid on suunatud keskserverisse". Selle teksti all kuvatakse dünaamiline nimekiri viimasest 5 külastusest koos täpse fikseeritud ajaga (Timestamp).
 
-<img width="596" height="547" alt="{E67D8AF5-11F6-4F07-9CF4-914789B2DECE}" src="https://github.com/user-attachments/assets/244ce42d-12a7-4a3d-8b04-2c1741287575" />
+<img width="626" height="662" alt="{FC338D33-71D8-47F7-8B7B-A15186C55006}" src="https://github.com/user-attachments/assets/9686ab32-b48a-4804-b49f-3c00a377816c" />
 
 ## 2. Mis andmeid süsteem salvestab?
 
