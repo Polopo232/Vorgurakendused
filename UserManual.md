@@ -1,26 +1,21 @@
-1. Rakenduse eesmärk ja olemus
+## 1. Kuidas teenust kasutada
 
-Veebirakendus on loodud külastuste automaatseks registreerimiseks ja ajaloo kuvamiseks. Süsteem fikseerib iga veebilehe vaatamise ja salvestab andmed reaalajas.
-2. Kuidas teenust kasutada
+Rakenduse kasutamine on maksimaalselt lihtne ega nõua kasutajalt keerulisi lisategevusi. Teenuse tarbimiseks tavatarbija vaatest tuleb läbida järgmised sammud:
 
-Rakenduse kasutamine on maksimaalselt lihtne ega nõua kasutajalt lisategevusi:
+* Veebilehele sisenemine: Ava oma eelistatud veebibrauser ja sisesta aadressiribale: http://localhost.
 
-    Veebilehele sisenemine: Ava oma veebibrauser ja sisesta aadressiribale: http://localhost.
+* Külastuse registreerimine: Iga kord, kui lehele sisened või veebilehte värskendad (vajutades klahvi F5), loob süsteem automaatselt uue sissekande MariaDB andmebaasi.
 
-    Külastuse registreerimine: Iga kord, kui sa lehele sisened või veebilehte värskendad (vajutades klahvi F5), loob süsteem automaatselt uue sissekande MariaDB andmebaasi.
+* Andmete kuvamine (Väljund): Veebilehel kuvatakse reaalajas tekst: "Antud süsteem on konteineriseeritud ja logid on suunatud keskserverisse". Selle teksti all kuvatakse dünaamiline nimekiri viimasest 5 külastusest koos täpse fikseeritud ajaga (Timestamp).
 
-    Andmete kuvamine (Väljund): Veebilehel kuvatakse reaalajas tekst: "Antud süsteem on konteineriseeritud ja logid on suunatud keskserverisse". Selle all näed nimekirja viimasest 5 külastusest koos täpse fikseeritud ajaga (Timestamp).
+<img width="1816" height="927" alt="Veebivaade" src="https://github.com/user-attachments/assets/b16c3324-c964-4d4d-9077-6249e272d64b" />
 
-3. Mis andmeid süsteem salvestab?
+## 2. Mis andmeid süsteem salvestab?
 
-Sinu privaatsuse tagamiseks ei kogu rakendus isikuandmeid. Salvestatakse ainult:
+Kasutaja privaatsuse tagamiseks ei kogu rakendus isikuandmeid. Andmebaasi ja logitabelisse salvestatakse ainult kriitiline tehniline info:
 
-    Külastuse aeg: Täpne kuupäev ja kellaaeg, millal lehte värskendati.
+1. Külastuse aeg: Täpne kuupäev ja kellaaeg, millal veebilehte vaadati või värskendati.
 
-    Seadme info (User-Agent): Tehniline teave selle kohta, millist brauserit ja operatsioonisüsteemi sa külastamiseks kasutasid.
+2. Seadme info (User-Agent): Tehniline teave selle kohta, millist operatsioonisüsteemi ja veebibrauserit külastaja kasutas.
 
-Süsteemi logid edastatakse turvaliselt monitooringu serverisse, tagades süsteemi stabiilse töö.
-
-Märkus administraatorile: Kui teenus ei avane aadressil http://localhost, kontrollige, kas Docker-konteinerid on korrektselt käivitatud vastavalt failile [ADMIN_GUIDE.md](./ADMIN_GUIDE.md).
-
-
+3. Süsteemi stabiilsus: Kõik teenuse tekitatud logid edastatakse reaalajas ja turvaliselt monitooringu serverisse, mis tagab infrastruktuuri stabiilse töö ja kiire veaotsingu.
