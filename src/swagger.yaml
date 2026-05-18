@@ -1,11 +1,21 @@
 openapi: 3.0.0
 info:
-  title: My Project API
-  version: 1.0.0
+  title: "BananaLog API"
+  description: "Konteineriseeritud infrastruktuuri API külastuste registreerimiseks ja analüütika pärimiseks."
+  version: "1.1.0"
 paths:
   /:
     get:
-      summary: Получить список визитов
+      summary: "Tagastab külastuste ajaloo või filtreeritud statistika"
+      description: "Kui parameeter 'kuupäev' puudub, registreeritakse uus külastus ja kuvatakse viimased 5 sissekannet. Kui parameeter on määratud, kuvatakse antud päeva analüütika."
+      parameters:
+        - name: kuupäev
+          in: query
+          required: false
+          description: "Filtreeritav kuupäev formaadis YYYY-MM-DD"
+          schema:
+            type: string
+            format: date
       responses:
         '200':
-          description: OK
+          description: "Edukas päring, tagastatakse dünaamiline HTML leht"
