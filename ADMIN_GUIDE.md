@@ -1,20 +1,20 @@
 # Süsteemi Administraatori Juhend (5.3)
 
-See dokument on mõeldud tehnilisele personalile süsteemi haldamiseks ja hoolduseks[cite: 2].
+See dokument on mõeldud tehnilisele personalile süsteemi haldamiseks ja hoolduseks.
 
 ## 1. Infrastruktuuri haldus
-* **Nginx:** Tegeleb pordiga 80 ja suunab liikluse PHP konteinerisse[cite: 2].
-* **Portide haldus:** Rakendus suhtleb välise Forward API-ga pordil 8443[cite: 1, 2].
+* **Nginx:** Tegeleb pordiga 80 ja suunab liikluse PHP konteinerisse.
+* **Portide haldus:** Rakendus suhtleb välise Forward API-ga pordil 8443.
 
 ## 2. Andmebaasi varundamine ja taastamine
 Administraator peab regulaarselt looma varukoopiaid[cite: 2].
-* **Varundamine:** `docker exec nimi_db mysqldump -u root -p projekt_db > backup.sql`[cite: 2].
-* **Taastamine:** `docker exec -i nimi_db mariadb -u root -p projekt_db < backup.sql`[cite: 2].
+* **Varundamine:** `docker exec nimi_db mysqldump -u root -p projekt_db > backup.sql`.
+* **Taastamine:** `docker exec -i nimi_db mariadb -u root -p projekt_db < backup.sql`.
 
 ## 3. Logiskriptide konfigureerimine
-Logid saadetakse HTTPS POST päringutega[cite: 1, 2].
-* **Autoriseerimine:** Kontrollige `index.php` failis `x-api-id` ja `x-api-key` väärtuste vastavust[cite: 1, 2].
-* **Veaotsing:** Kasutage `docker logs nimi_app`, et jälgida saatmisprotsessi[cite: 2].
+Logid saadetakse HTTPS POST päringutega.
+* **Autoriseerimine:** Kontrollige `index.php` failis `x-api-id` ja `x-api-key` väärtuste vastavust.
+* **Veaotsing:** Kasutage `docker logs nimi_app`, et jälgida saatmisprotsessi.
 
 ---
 **Konfidentsiaalne | IT-Infrastruktuuri meeskond**
