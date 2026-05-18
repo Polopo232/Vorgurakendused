@@ -1,4 +1,4 @@
-# 👥 Veebirakenduse Kasutusjuhend (User Manual - 5.1)
+# 👥 Veebirakenduse Kasutusjuhend
 
 Antud juhend on mõeldud BananaLog veebirakenduse lõppkasutajatele ja klientidele ning kirjeldab süsteemi funktsionaalsust, integreeritud analüütikat ja selle kasutamist.
 
