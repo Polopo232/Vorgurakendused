@@ -1,4 +1,4 @@
-# Süsteemi Administraatori Juhend (5.3)
+# Süsteemi Administraatori Juhend
 
 See dokument on mõeldud tehnilisele personalile süsteemi haldamiseks ja hoolduseks.
 
@@ -7,7 +7,7 @@ See dokument on mõeldud tehnilisele personalile süsteemi haldamiseks ja hooldu
 * **Portide haldus:** Rakendus suhtleb välise Forward API-ga pordil 8443.
 
 ## 2. Andmebaasi varundamine ja taastamine
-Administraator peab regulaarselt looma varukoopiaid[cite: 2].
+Administraator peab regulaarselt looma varukoopiaid.
 * **Varundamine:** `docker exec nimi_db mysqldump -u root -p projekt_db > backup.sql`.
 * **Taastamine:** `docker exec -i nimi_db mariadb -u root -p projekt_db < backup.sql`.
 
