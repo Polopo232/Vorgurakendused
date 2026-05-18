@@ -21,7 +21,7 @@ Antud projekt on loodud õppeülesande raames. Süsteem koosneb konteineriseerit
 ## 1. Arhitektuuri joonis
 Süsteemi arhitektuur on täielikult konteineriseeritud (Nginx, PHP-FPM, MariaDB). Joonis kirjeldab andmevoogusid kasutaja ja teenuste vahel.
 
-<img width="596" height="547" alt="{E67D8AF5-11F6-4F07-9CF4-914789B2DECE}" src="https://github.com/user-attachments/assets/230481d6-4c99-412b-bb58-a031650ba40b" />
+<img width="596" height="547" alt="{E67D8AF5-11F6-4F07-9CF4-914789B2DECE}" src="https://github.com/user-attachments/assets/e0e3a845-a1de-4a22-9c2f-b1c2b9209178" />
 
 ---
 
