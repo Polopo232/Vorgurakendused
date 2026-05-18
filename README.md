@@ -2,7 +2,7 @@
 
 Antud projekt on loodud õppeülesande raames. Süsteem koosneb konteineriseeritud veebirakendusest, andmebaasist ja tsentraalsest logimissüsteemist.
 
-<img width="948" height="690" alt="Süsteemi vaade" src="https://github.com/user-attachments/assets/d1e949ba-db93-477c-a4e4-a26672893cd7" />
+<img width="596" height="547" alt="{E67D8AF5-11F6-4F07-9CF4-914789B2DECE}" src="https://github.com/user-attachments/assets/508c8a7d-bc3a-4237-afcd-3490d57c2815" />
 
 ---
 
@@ -21,7 +21,7 @@ Antud projekt on loodud õppeülesande raames. Süsteem koosneb konteineriseerit
 ## 1. Arhitektuuri joonis
 Süsteemi arhitektuur on täielikult konteineriseeritud (Nginx, PHP-FPM, MariaDB). Joonis kirjeldab andmevoogusid kasutaja ja teenuste vahel.
 
-<img width="596" height="547" alt="{E67D8AF5-11F6-4F07-9CF4-914789B2DECE}" src="https://github.com/user-attachments/assets/e0e3a845-a1de-4a22-9c2f-b1c2b9209178" />
+<img width="905" height="457" alt="Arhitektuur" src="https://github.com/user-attachments/assets/8cc9d2b2-6f25-4577-ad34-71fe1404294b" />
 
 ---
 
